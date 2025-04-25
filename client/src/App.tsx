@@ -4,12 +4,12 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
-import HomePage from "@/pages/home-page";
+import NewHomePage from "@/pages/new-home-page";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route path="/" component={NewHomePage} />
       <Route component={NotFound} />
     </Switch>
   );
