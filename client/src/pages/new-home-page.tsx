@@ -210,44 +210,244 @@ export default function HomePage() {
               </p>
             </motion.div>
             
-            {/* Three-Category Organization as specified in design doc */}
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <div className="text-center px-4">
-                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 text-blue-600">
+            {/* Consultancy Services Cards - Enhanced and Standout Design */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {/* Technology Infrastructure Card */}
+              <motion.div 
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 relative flex items-center justify-center">
+                  <div className="absolute inset-0 opacity-10">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <path fill="#FFFFFF" d="M44.5,-76.2C59.3,-70.3,74.1,-61.5,80.9,-48.3C87.8,-35.2,86.6,-17.6,83.8,-1.6C81,14.4,76.5,28.8,68.7,41C60.9,53.2,49.9,63.1,37.5,69.3C25.1,75.5,12.5,77.8,-0.4,78.4C-13.3,79,-26.6,77.9,-39.4,73.1C-52.2,68.3,-64.5,59.8,-71.8,47.9C-79.2,36,-81.5,20.5,-82.2,4.9C-82.9,-10.8,-82,-26.5,-75.1,-39.1C-68.3,-51.7,-55.6,-61.1,-42,-68C-28.4,-75,-14.2,-79.4,0.5,-80.3C15.2,-81.2,30.4,-78.5,44.5,-76.2Z" transform="translate(100 100)" />
+                    </svg>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 text-white relative z-10">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 019 0m-9 0h16.5m-16.5 0a4.5 4.5 0 019 0m-9 0H12m-9.75 11.25h3.375a3 3 0 013 3V21.75h-9.75v-4.5Z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Technology Infrastructure</h3>
-                <p className="text-gray-600 mb-6">
-                  Comprehensive solutions for optimizing your facility and technology infrastructure.
-                </p>
-              </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 text-gradient-blue">Technology Infrastructure</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Comprehensive solutions for optimizing your facility and technology infrastructure. Our expertise spans data centers, network design, and facility management.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-blue-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Data Center Design & Implementation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-blue-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Facility Infrastructure Optimization</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-blue-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Network Architecture & Security</span>
+                    </li>
+                  </ul>
+                  <a href="#" className="text-blue-600 font-medium inline-flex items-center">
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </motion.div>
               
-              <div className="text-center px-4">
-                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 text-blue-600">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+              {/* Digital Transformation Card */}
+              <motion.div 
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="h-48 bg-gradient-to-r from-indigo-500 to-purple-600 relative flex items-center justify-center">
+                  <div className="absolute inset-0 opacity-10">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <path fill="#FFFFFF" d="M47.1,-79.7C61.8,-72.3,75.1,-62.1,83.7,-48.4C92.3,-34.7,96.3,-17.3,95.9,-0.2C95.5,16.9,90.8,33.7,81.4,47.6C72.1,61.5,58.2,72.3,43.2,77.8C28.1,83.3,11.9,83.5,-3.5,88.5C-18.9,93.6,-33.6,103.7,-48.2,103.2C-62.8,102.6,-77.3,91.6,-85.1,76.8C-93,62,-94.2,43.5,-94.8,26.6C-95.4,9.7,-95.4,-5.4,-89.1,-17.8C-82.7,-30.1,-70,-39.6,-57.3,-48.2C-44.5,-56.8,-31.7,-64.5,-18,-70.4C-4.3,-76.2,9.5,-80.1,23.3,-81.3C37.2,-82.4,51.1,-80.8,61.7,-76.2C72.4,-71.5,79.8,-64,87.3,-54.4C94.9,-44.9,102.5,-33.3,105.4,-20.7C108.3,-8.1,106.5,5.6,104.4,20.5C102.2,35.5,99.8,51.8,90.8,64.3C81.8,76.8,66.2,85.6,50.1,90.3C33.9,95.1,17,95.8,0.1,95.6C-16.8,95.4,-33.6,94.3,-48.3,87.5C-63.1,80.8,-75.8,68.5,-84.1,53.8C-92.4,39.1,-96.3,22,-96.9,5.1C-97.5,-11.9,-94.8,-28.7,-86.6,-42.1C-78.4,-55.6,-64.8,-65.8,-50.1,-73.2C-35.4,-80.6,-19.5,-85.3,-3.2,-90.4C13.1,-95.5,29.7,-101.1,44.2,-97.4C58.6,-93.7,70.8,-80.8,79.2,-66.7C87.6,-52.6,92.1,-37.3,95.9,-21.4C99.7,-5.5,102.9,11,98.9,25.4C94.9,39.9,83.7,52.3,70.6,62C57.5,71.7,42.6,78.7,27.4,82C12.2,85.3,-3.3,85,-18.1,82.1C-32.9,79.3,-47,73.9,-58.4,64.6C-69.8,55.4,-78.4,42.2,-83.9,27.7C-89.4,13.2,-91.7,-2.7,-88.6,-17.3C-85.5,-32,-77,-45.5,-65.7,-55.7C-54.5,-65.9,-40.5,-73,-26.3,-74.1C-12.1,-75.1,2.3,-70,15.8,-74C29.3,-78,41.9,-91.1,51.6,-90.5C61.2,-89.9,68.1,-75.7,77.9,-63.7C87.6,-51.7,100.4,-41.9,104.3,-29.4C108.3,-16.9,103.3,-1.8,101.5,15.2C99.7,32.2,100.9,51,93.1,64.7C85.3,78.4,68.4,87,51.4,91.3C34.4,95.6,17.2,95.6,0.1,95.5C-17,95.4,-34.1,95.2,-49.4,89.3C-64.8,83.4,-78.5,71.7,-86.7,57.2C-94.9,42.7,-97.7,25.3,-99.5,7.5C-101.2,-10.3,-102,-28.5,-96.8,-43.8C-91.7,-59.1,-80.7,-71.4,-66.9,-79.6C-53.1,-87.7,-36.5,-91.6,-20.6,-93.5C-4.6,-95.4,10.7,-95.4,24.9,-92C39.2,-88.6,52.4,-81.9,66.3,-74.2C80.2,-66.4,94.9,-57.7,102.1,-45.5C109.4,-33.3,109.3,-17.6,105.5,-3.7C101.8,10.2,94.3,20.3,86.9,30.7C79.5,41.1,72.1,51.7,62.4,60.2C52.6,68.7,40.5,75.1,27.4,79.8C14.4,84.5,0.5,87.5,-13.6,86.5C-27.8,85.5,-42.2,80.4,-54.4,72.1C-66.5,63.8,-76.5,52.3,-83,39.2C-89.6,26.2,-92.8,11.7,-94.1,-3.3C-95.5,-18.4,-95.2,-33.9,-88.2,-45.6C-81.2,-57.2,-67.5,-65,-53.5,-71.3C-39.5,-77.6,-25.1,-82.4,-9.7,-85C5.7,-87.6,22.2,-88,36.7,-84.5C51.2,-81,63.7,-73.5,73.7,-63.7C83.7,-53.9,91.1,-41.7,96.9,-28.4C102.6,-15.2,106.7,-0.9,105.5,12.7C104.4,26.2,98,39.1,89.3,50.5C80.7,61.9,69.8,72,57.4,78.5C45,85.1,31.1,88.2,17.4,90.2C3.6,92.3,-10,93.4,-23.6,91.2C-37.2,89,-50.7,83.7,-62.7,75.1C-74.7,66.5,-85.1,54.7,-91.2,41C-97.3,27.2,-99.1,11.6,-97.7,-3.2C-96.3,-17.9,-91.8,-31.7,-83.8,-43.8C-75.9,-55.9,-64.5,-66.2,-51.4,-73C-38.3,-79.8,-23.5,-83.2,-8.2,-84.3C7.1,-85.4,22.8,-84.3,36.7,-79.8C50.6,-75.3,62.7,-67.5,74.2,-57.8C85.8,-48.1,96.8,-36.5,101.2,-23.2C105.6,-9.9,103.3,5.1,99.2,19.2C95.1,33.2,89.1,46.3,79.9,57.1C70.8,68,58.5,76.7,45.2,82.4C31.9,88.1,17.4,90.8,3,91.4C-11.4,92,-25.7,90.4,-39.2,85.5C-52.7,80.6,-65.4,72.3,-75.4,61.3C-85.5,50.4,-92.9,36.7,-97.2,22C-101.5,7.2,-102.8,-8.6,-100,-23.5C-97.3,-38.3,-90.6,-52.3,-80.1,-63.3C-69.7,-74.3,-55.6,-82.5,-40.9,-87.5C-26.2,-92.5,-11,-94.3,3.9,-94.8C18.8,-95.3,33.2,-94.4,46.7,-89.9C60.1,-85.4,72.5,-77.2,81.8,-66.2C91.2,-55.2,97.5,-41.3,101.3,-26.8C105.1,-12.3,106.3,2.9,104.4,18.3C102.5,33.7,97.5,49.4,88.4,62C79.4,74.7,66.2,84.4,51.9,90.1C37.6,95.8,22.1,97.5,6.7,96.9C-8.7,96.2,-24,93.2,-37.8,87.1C-51.5,81.1,-63.7,71.9,-73.3,60.6C-82.9,49.3,-90,35.8,-94.1,21.4C-98.3,7,-99.5,-8.2,-96.2,-22.2C-92.9,-36.2,-85.1,-48.9,-74.6,-59.5C-64.2,-70.1,-51.1,-78.5,-37.1,-84.2C-23.1,-89.9,-8.1,-92.9,6.4,-94.5C20.9,-96,35,-96.2,48.5,-93C62.1,-89.7,75.1,-83,85.3,-73C95.4,-63,102.8,-49.7,105.3,-35.7C107.8,-21.6,105.5,-6.8,102.2,8.1C98.9,22.9,94.7,37.8,86.8,50.5C78.8,63.3,67.3,74,54.2,81.3C41.1,88.7,26.4,92.8,11.8,94.3C-2.9,95.9,-17.5,94.9,-31.2,91.1C-44.9,87.2,-57.7,80.4,-68.9,71C-80.1,61.5,-89.6,49.4,-95.6,35.6C-101.6,21.7,-104,6.1,-103.7,-9.8C-103.3,-25.7,-100.1,-41.9,-91.8,-54.7C-83.5,-67.5,-70.1,-76.9,-55.5,-82.8C-40.9,-88.8,-25.2,-91.4,-9.3,-93.1C6.5,-94.8,22.5,-95.6,36.7,-91.8C50.9,-88.1,63.4,-79.9,73.9,-69.3C84.4,-58.8,93,-45.9,98.2,-31.7C103.4,-17.5,105.3,-2,104.3,13.7C103.3,29.4,99.5,45.3,91.4,58.7C83.3,72.1,71,83,57.4,90.3C43.7,97.7,28.6,101.5,13.6,102.1C-1.4,102.7,-16.5,100.2,-30.9,95.7C-45.3,91.3,-59.1,85,-70.5,75.2C-81.9,65.5,-90.9,52.2,-96.8,37.4C-102.6,22.7,-105.2,6.4,-104.3,-9.4C-103.4,-25.2,-99,-40.6,-90.4,-53.3C-81.8,-66.1,-68.9,-76.2,-54.6,-83C-40.3,-89.8,-24.4,-93.2,-8.4,-94.8C7.6,-96.3,23.8,-95.9,38.6,-92.1C53.4,-88.4,66.8,-81.4,77.9,-71.5C89,-61.6,97.8,-48.9,102.9,-34.9C108,-20.9,109.5,-5.5,108,-8.8" transform="translate(100 100)" />
+                    </svg>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 text-white relative z-10">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0015 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Digital Transformation</h3>
-                <p className="text-gray-600 mb-6">
-                  Strategic services to modernize your operations and enhance digital capabilities.
-                </p>
-              </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 text-gradient-purple">Digital Transformation</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Strategic services to modernize your operations and enhance digital capabilities. We help businesses evolve through technology adoption.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-indigo-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Legacy System Modernization</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-indigo-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Cloud Migration Strategy</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-indigo-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Digital Workplace Solutions</span>
+                    </li>
+                  </ul>
+                  <a href="#" className="text-indigo-600 font-medium inline-flex items-center">
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </motion.div>
               
-              <div className="text-center px-4">
-                <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-10 h-10 text-blue-600">
+              {/* Sustainability Solutions Card */}
+              <motion.div 
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <div className="h-48 bg-gradient-to-r from-green-500 to-teal-600 relative flex items-center justify-center">
+                  <div className="absolute inset-0 opacity-10">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                      <path fill="#FFFFFF" d="M40.2,-70.9C49.2,-64.3,51.7,-46.6,60.5,-31.2C69.2,-15.8,84.1,-2.7,85.6,11.1C87.2,24.9,75.2,39.5,61.7,49.3C48.1,59.1,33,63.9,17.4,70.3C1.9,76.6,-14.1,84.4,-26.5,80.6C-38.9,76.8,-47.6,61.4,-57,46.7C-66.3,32,-76.3,18.1,-79.1,2.5C-81.9,-13.2,-77.6,-30.7,-67.9,-43.4C-58.2,-56.1,-43.3,-64.1,-29.4,-68.6C-15.6,-73.1,-2.9,-74.2,8.5,-70C19.9,-65.8,31.2,-56.4,40.2,-74.3" transform="translate(100 100)" />
+                    </svg>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 text-white relative z-10">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 01-1.161.886l-.143.048a1.107 1.107 0 00-.57 1.664c.369.555.169 1.307-.427 1.605L9 13.125l.423 1.059a.956.956 0 01-1.652.928l-.679-.906a1.125 1.125 0 00-1.906.172L4.5 15.75l-.612.153M12.75 3.031a9 9 0 00-8.862 12.872M12.75 3.031a9 9 0 016.69 14.036m0 0l-.177-.529A2.25 2.25 0 0017.128 15H16.5l-.324-.324a1.453 1.453 0 00-2.328.377l-.036.073a1.586 1.586 0 01-.982.816l-.99.282c-.55.157-.894.702-.8 1.267l.073.438c.08.474.49.821.97.821.846 0 1.598.542 1.865 1.345l.215.643m5.276-3.67a9.012 9.012 0 01-5.276 3.67m0 0a9 9 0 01-10.275-4.835M15.75 9c0 .896-.393 1.7-1.016 2.25" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-4">Sustainability Solutions</h3>
-                <p className="text-gray-600 mb-6">
-                  Environmentally conscious strategies for operational efficiency and future growth.
-                </p>
-              </div>
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-4 text-gradient-green">Sustainability Solutions</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    Environmentally conscious strategies for operational efficiency and future growth. We help organizations achieve their sustainability goals.
+                  </p>
+                  <ul className="space-y-2 mb-6">
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-green-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Energy Efficiency Audits</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-green-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Carbon Neutrality Planning</span>
+                    </li>
+                    <li className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5 text-green-600 mr-2 mt-0.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>Sustainable Infrastructure Design</span>
+                    </li>
+                  </ul>
+                  <a href="#" className="text-green-600 font-medium inline-flex items-center">
+                    Learn More
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </motion.div>
             </div>
+            
+            {/* Innovations and Technology Transfers Section */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h3 className="text-2xl font-bold mb-8 text-center">Innovations and Technology Transfers</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Energy Storage Solutions Card */}
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-amber-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Energy Storage Solutions</h4>
+                      <p className="text-gray-600">
+                        Advanced energy storage technologies and solutions for efficient power management and carbon footprint reduction.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Carbon Neutrality Card */}
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-green-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Carbon Neutrality</h4>
+                      <p className="text-gray-600">
+                        Comprehensive strategies and implementation roadmaps to help organizations achieve carbon neutrality goals.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Process Automation Card */}
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-purple-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Process and Automation</h4>
+                      <p className="text-gray-600">
+                        Industrial automation solutions including IIOT implementations for manufacturing, logistics, and operational efficiency.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Web Applications Card */}
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Web Applications Engineering</h4>
+                      <p className="text-gray-600">
+                        Custom web application development for business process optimization and digital transformation initiatives.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
             
             {/* Data Centers as primary service focus with 8 detailed areas */}
             <motion.div 
