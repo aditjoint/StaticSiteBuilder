@@ -8,7 +8,7 @@ export default function HomePage() {
   const [showVideo, setShowVideo] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   
-  // Handle scroll behavior
+  // Handle scroll behavior and legal tab functionality
   useEffect(() => {
     // Handle URL hash on load
     const handleHashOnLoad = () => {
@@ -30,8 +30,52 @@ export default function HomePage() {
       setShowVideo(false);
     }, 60000);
     
+    // Set up tabbed interface for legal section
+    const setupTabs = () => {
+      const privacyTab = document.getElementById('privacy-tab');
+      const termsTab = document.getElementById('terms-tab');
+      const cookiesTab = document.getElementById('cookies-tab');
+      
+      const privacyContent = document.getElementById('privacy-content');
+      const termsContent = document.getElementById('terms-content');
+      const cookiesContent = document.getElementById('cookies-content');
+      
+      if (!privacyTab || !termsTab || !cookiesTab || 
+          !privacyContent || !termsContent || !cookiesContent) {
+        return;
+      }
+      
+      const activateTab = (tab: HTMLElement, content: HTMLElement) => {
+        // Reset all tabs and content
+        [privacyTab, termsTab, cookiesTab].forEach(t => {
+          if (t) t.className = 'flex-1 py-4 px-4 font-medium text-gray-600 hover:text-blue-600 focus:outline-none';
+        });
+        
+        [privacyContent, termsContent, cookiesContent].forEach(c => {
+          if (c) c.className = 'hidden space-y-6';
+        });
+        
+        // Activate selected tab and content
+        tab.className = 'flex-1 py-4 px-4 font-medium text-blue-600 border-b-2 border-blue-600 focus:outline-none';
+        content.className = 'space-y-6';
+      };
+      
+      privacyTab.addEventListener('click', () => activateTab(privacyTab, privacyContent));
+      termsTab.addEventListener('click', () => activateTab(termsTab, termsContent));
+      cookiesTab.addEventListener('click', () => activateTab(cookiesTab, cookiesContent));
+    };
+    
+    // Only set up tabs when the elements are in the DOM
+    const tabSetupInterval = setInterval(() => {
+      if (document.getElementById('privacy-tab')) {
+        setupTabs();
+        clearInterval(tabSetupInterval);
+      }
+    }, 500);
+    
     return () => {
       clearTimeout(timer);
+      clearInterval(tabSetupInterval);
       document.documentElement.style.scrollBehavior = '';
     };
   }, []);
@@ -1065,6 +1109,220 @@ export default function HomePage() {
                 </motion.div>
               </div>
             </motion.div>
+          </div>
+        </section>
+        
+        {/* Legal Section with Privacy Policy, Terms of Use, and Cookie Policy */}
+        <section id="legal" className="section bg-white py-20">
+          <div className="container mx-auto px-4">
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Legal Information
+              </h2>
+              <p className="text-gray-600">
+                Our commitment to transparency, data protection, and user privacy.
+              </p>
+            </motion.div>
+            
+            {/* Tab-based layout for legal documents */}
+            <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm">
+              {/* Tabs */}
+              <div className="flex border-b border-gray-200">
+                <button 
+                  className="flex-1 py-4 px-4 font-medium text-blue-600 border-b-2 border-blue-600 focus:outline-none"
+                  id="privacy-tab"
+                >
+                  Privacy Policy
+                </button>
+                <button 
+                  className="flex-1 py-4 px-4 font-medium text-gray-600 hover:text-blue-600 focus:outline-none"
+                  id="terms-tab"
+                >
+                  Terms of Use
+                </button>
+                <button 
+                  className="flex-1 py-4 px-4 font-medium text-gray-600 hover:text-blue-600 focus:outline-none"
+                  id="cookies-tab"
+                >
+                  Cookie Policy
+                </button>
+              </div>
+              
+              {/* Tab content */}
+              <div className="p-8">
+                {/* Privacy Policy */}
+                <div id="privacy-content" className="space-y-6">
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Data Collection & Usage</h3>
+                      <p className="text-gray-600">
+                        ADIT Joint collects limited personal information for specific business purposes. We process this data legally and transparently, obtaining clear consent when required by applicable regulations.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 004.5 10.5a7.464 7.464 0 01-1.15 3.993m1.989 3.559A11.209 11.209 0 008.25 10.5a3.75 3.75 0 117.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 01-3.6 9.75m6.633-4.596a18.666 18.666 0 01-2.485 5.33" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Data Security</h3>
+                      <p className="text-gray-600">
+                        We implement robust technical and organizational security measures to protect your data from unauthorized access, alteration, disclosure, or destruction. This includes encryption, access controls, and regular security assessments.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Your Rights</h3>
+                      <p className="text-gray-600">
+                        Depending on your location, you may have rights to access, correct, delete, or restrict processing of your personal data. You may also have the right to data portability and to withdraw consent. We respond to all requests within legal timeframes.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+                    <p className="text-sm text-gray-500">Last Updated: April 15, 2025</p>
+                    <a href="#" className="text-blue-600 font-medium flex items-center">
+                      Full Privacy Policy
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-1">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Terms of Use - hidden by default */}
+                <div id="terms-content" className="hidden space-y-6">
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Website Usage</h3>
+                      <p className="text-gray-600">
+                        This website is provided for informational purposes. By accessing and using this site, you agree to these Terms of Use. We reserve the right to modify these terms at any time without notice.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25M9 16.5v.75m3-3v3M15 12v5.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Intellectual Property</h3>
+                      <p className="text-gray-600">
+                        All content on this website, including text, graphics, logos, and software, is the property of ADIT Joint and is protected by intellectual property laws. Reproduction or redistribution without written permission is prohibited.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">User Conduct</h3>
+                      <p className="text-gray-600">
+                        Users must not engage in any activity that interferes with the website's operation, attempt to gain unauthorized access, or use the site for any unlawful purpose. We reserve the right to terminate access for violations.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+                    <p className="text-sm text-gray-500">Last Updated: March 22, 2025</p>
+                    <a href="#" className="text-blue-600 font-medium flex items-center">
+                      Full Terms of Use
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-1">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                
+                {/* Cookie Policy - hidden by default */}
+                <div id="cookies-content" className="hidden space-y-6">
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">What Are Cookies</h3>
+                      <p className="text-gray-600">
+                        Cookies are small text files that are placed on your device to collect standard internet log information and visitor behavior information. This information is used to track visitor use of the website and to compile statistical reports.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">How We Use Cookies</h3>
+                      <p className="text-gray-600">
+                        We use cookies to understand how visitors interact with our website, to personalize content, and to analyze our website traffic. We may also share information about your site usage with our analytics partners.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start mb-6">
+                    <div className="flex-shrink-0 bg-blue-100 rounded-full p-2 mr-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 text-blue-600">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Managing Cookies</h3>
+                      <p className="text-gray-600">
+                        Most web browsers allow control of cookies through the browser settings. You can set your browser to refuse cookies, delete specific cookies, or notify you when a cookie is being set. Please note that restricting cookies may impact your experience on our website.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+                    <p className="text-sm text-gray-500">Last Updated: March 28, 2025</p>
+                    <a href="#" className="text-blue-600 font-medium flex items-center">
+                      Full Cookie Policy
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4 ml-1">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         
