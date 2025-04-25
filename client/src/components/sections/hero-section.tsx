@@ -1,10 +1,7 @@
 import { motion } from 'framer-motion';
+import { forwardRef } from 'react';
 
-interface HeroSectionProps {
-  ref: (el: HTMLElement | null) => void;
-}
-
-export default function HeroSection({ ref }: HeroSectionProps) {
+const HeroSection = forwardRef<HTMLElement>((props, ref) => {
   return (
     <section 
       id="home" 
@@ -66,4 +63,6 @@ export default function HeroSection({ ref }: HeroSectionProps) {
       </motion.div>
     </section>
   );
-}
+});
+
+export default HeroSection;
