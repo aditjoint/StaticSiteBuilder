@@ -39,10 +39,9 @@
   --radius: 0.5rem;
 }
 
-/* Core layout parameters */
+/* Core layout parameters - Rolling Type Design with Scroll Snap */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
   height: 100%;
 }
 
@@ -50,6 +49,7 @@ body {
   height: 100%;
   overflow-y: auto;
   @apply font-sans antialiased;
+  scroll-snap-type: y mandatory;
 }
 
 .section {
@@ -57,6 +57,12 @@ body {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
+  padding-top: 80px; /* Ensure content is visible below the fixed navbar */
+}
+
+/* Remove scroll snap from footer */
+footer {
+  scroll-snap-align: none;
 }
 
 /* Container control */
@@ -114,18 +120,34 @@ body {
   @apply bg-white text-blue-600 border border-blue-600 hover:bg-blue-50 focus:ring-blue-500;
 }
 
-/* Card styling */
+/* Card styling - Enhanced for Resources and Current Affairs sections */
 .card {
-  @apply bg-white rounded-lg p-6 border border-gray-200 transition-shadow hover:shadow-md;
+  @apply bg-white rounded-xl p-6 border border-gray-100 transition-all duration-300;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
 }
 
-/* Animation utilities */
+/* Card hover effects */
 .hover-scale {
-  @apply transition-transform duration-300;
+  @apply transition-all duration-300;
 }
 
 .hover-scale:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Resource card specific styling */
+#resources .card {
+  @apply flex flex-col h-full;
+}
+
+#resources .card > *:last-child {
+  @apply mt-auto;
+}
+
+/* Current Affairs card styling */
+#initiatives .card {
+  @apply overflow-hidden;
 }
 
 .floating {

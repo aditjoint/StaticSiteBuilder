@@ -432,8 +432,248 @@ export default function HomePage() {
           </div>
         </section>
         
+        {/* Resources Section - Admin-controlled content as specified */}
+        <section id="resources" className="section bg-white py-20">
+          <div className="container mx-auto px-4">
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Resources
+              </h2>
+              <p className="text-gray-600">
+                Access our knowledge base and industry insights to stay informed about the latest developments
+                and best practices in technology infrastructure and digital transformation.
+              </p>
+            </motion.div>
+            
+            {/* Card-based layout as specified in design document */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Data Center Design Best Practices",
+                  description: "Comprehensive guide covering essential considerations for modern data center design.",
+                  date: "April 10, 2025",
+                  type: "Whitepaper",
+                  category: "Infrastructure"
+                },
+                {
+                  title: "Digital Transformation Roadmap",
+                  description: "Strategic framework for organizations embarking on digital transformation journeys.",
+                  date: "March 22, 2025",
+                  type: "Guide",
+                  category: "Transformation"
+                },
+                {
+                  title: "Sustainable Tech Infrastructure",
+                  description: "Implementation strategies for environmentally conscious technology infrastructure.",
+                  date: "February 15, 2025",
+                  type: "Case Study",
+                  category: "Sustainability"
+                },
+                {
+                  title: "AI Implementation Strategies",
+                  description: "Practical approaches to integrating AI solutions in enterprise environments.",
+                  date: "March 5, 2025",
+                  type: "Whitepaper",
+                  category: "AI & Applications"
+                },
+                {
+                  title: "IIoT Security Framework",
+                  description: "Comprehensive security considerations for Industrial Internet of Things deployments.",
+                  date: "January 30, 2025",
+                  type: "Framework",
+                  category: "Automation"
+                },
+                {
+                  title: "Cross-Industry Technology Trends",
+                  description: "Analysis of emerging technology trends affecting multiple industries.",
+                  date: "April 2, 2025",
+                  type: "Report",
+                  category: "Trends"
+                }
+              ].map((resource, index) => (
+                <motion.div 
+                  key={index}
+                  className="card hover-scale h-full flex flex-col"
+                  variants={fadeInUp}
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="text-xs font-medium text-white bg-blue-600 px-3 py-1 rounded-full">
+                      {resource.type}
+                    </span>
+                    <span className="text-xs text-gray-500">
+                      {resource.date}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-semibold mb-3">{resource.title}</h3>
+                  <p className="text-gray-600 mb-6 flex-grow">{resource.description}</p>
+                  
+                  <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                    <span className="text-sm text-gray-500">{resource.category}</span>
+                    <a href="#" className="text-blue-600 font-medium inline-flex items-center">
+                      Download
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                      </svg>
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* Current Initiatives / News & Events Section */}
+        <section id="initiatives" className="section bg-gray-50 py-20">
+          <div className="container mx-auto px-4">
+            <motion.div 
+              className="text-center max-w-3xl mx-auto mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Current Affairs
+              </h2>
+              <p className="text-gray-600">
+                Stay updated with our latest initiatives, news, and upcoming events in the technology 
+                and infrastructure space.
+              </p>
+            </motion.div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 mb-12">
+              {/* Featured News Item - Card-based layout as specified */}
+              <motion.div 
+                className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="h-64 bg-blue-100 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 text-blue-500">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                    </svg>
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      Partnership
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xl font-semibold">ActFour Technologies Partnership</h3>
+                    <span className="text-sm text-gray-500">April 15, 2025</span>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    ADIT Joint announces strategic partnership with ActFour Technologies to enhance data 
+                    center infrastructure capabilities and expand service offerings across the APAC region.
+                  </p>
+                  <a href="#" className="text-blue-600 font-medium inline-flex items-center">
+                    Read Full Announcement
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </motion.div>
+              
+              {/* Upcoming Event - Card-based layout as specified */}
+              <motion.div 
+                className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                <div className="h-64 bg-indigo-100 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-16 h-16 text-indigo-500">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                    </svg>
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                      Webinar
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xl font-semibold">Industry 4.0 Technology Showcase</h3>
+                    <span className="text-sm text-gray-500">May 10, 2025</span>
+                  </div>
+                  <p className="text-gray-600 mb-6">
+                    Join our virtual event showcasing the latest Industry 4.0 technologies and their 
+                    practical applications across manufacturing, logistics, and supply chain operations.
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-500">2:00 PM - 4:00 PM IST</span>
+                    <a href="#" className="text-blue-600 font-medium inline-flex items-center">
+                      Register Now
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* More News Items - Card-based layout */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Sustainability Initiative Launch",
+                  date: "March 28, 2025",
+                  category: "Initiative"
+                },
+                {
+                  title: "Digital Transformation Workshop",
+                  date: "May 22, 2025",
+                  category: "Event"
+                },
+                {
+                  title: "New Data Center Certification",
+                  date: "April 5, 2025",
+                  category: "Achievement"
+                }
+              ].map((news, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white p-5 rounded-lg shadow-sm border border-gray-100"
+                  variants={fadeInUp}
+                >
+                  <div className="flex justify-between items-center mb-3">
+                    <span className="text-xs font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                      {news.category}
+                    </span>
+                    <span className="text-xs text-gray-500">{news.date}</span>
+                  </div>
+                  <h4 className="text-lg font-semibold mb-3">{news.title}</h4>
+                  <a href="#" className="text-blue-600 text-sm font-medium inline-flex items-center">
+                    Read More
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+        
         {/* About Us Section */}
-        <section id="about" className="section bg-gray-50 py-20">
+        <section id="about" className="section bg-white py-20">
           <div className="container mx-auto px-4">
             <motion.div 
               className="grid md:grid-cols-2 gap-12 items-center"
@@ -483,7 +723,7 @@ export default function HomePage() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <motion.div 
-                  className="bg-white p-6 rounded-xl shadow-sm"
+                  className="bg-gray-50 p-6 rounded-xl shadow-sm"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -498,7 +738,7 @@ export default function HomePage() {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-white p-6 rounded-xl shadow-sm"
+                  className="bg-gray-50 p-6 rounded-xl shadow-sm"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -513,7 +753,7 @@ export default function HomePage() {
                 </motion.div>
                 
                 <motion.div 
-                  className="bg-white p-6 rounded-xl shadow-sm md:col-span-2"
+                  className="bg-gray-50 p-6 rounded-xl shadow-sm md:col-span-2"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
