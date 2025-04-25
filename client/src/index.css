@@ -79,6 +79,19 @@ footer {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
 }
 
+/* Service card title gradient text effects */
+.text-gradient-blue {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+}
+
+.text-gradient-purple {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600;
+}
+
+.text-gradient-green {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-teal-600;
+}
+
 .gradient-border {
   position: relative;
 }
