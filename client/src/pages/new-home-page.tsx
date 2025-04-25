@@ -1061,19 +1061,19 @@ export default function HomePage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  name: "Dr. Anand Sharma",
+                  name: "Lalitendu S",
                   role: "Technology Infrastructure",
-                  bio: "Former CTO with 25+ years of experience in data center design and implementation across APAC.",
+                  bio: "Experienced Engineer and Management consultant with 32+ years of experience in data center design and implementation across APAC.",
                   image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
                 },
                 {
-                  name: "Priya Mehta",
+                  name: "Lalitendu S",
                   role: "Digital Transformation",
-                  bio: "Digital strategy consultant who has led transformation initiatives for Fortune 500 companies.",
+                  bio: "Digital strategy and consultant who has led transformation initiatives for large Data Centers and corporates in India",
                   image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
                 },
                 {
-                  name: "Robert Chen",
+                  name: "Lalitendu S",
                   role: "Sustainability Solutions",
                   bio: "Expert in sustainable technology infrastructure with a focus on energy-efficient designs.",
                   image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80"
